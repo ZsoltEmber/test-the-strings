@@ -1,0 +1,47 @@
+package page;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+
+public class LoginPage extends BasePage {
+
+    @FindBy(id = "username")
+    private WebElement usernameField;
+    @FindBy(id = "password")
+    private WebElement passwordField;
+
+    @FindBy(xpath = "//button[text()='Continue']")
+    private WebElement loginButton;
+
+    @FindBy(className = "google")
+    private WebElement loginWithGoogleButton;
+
+    @FindBy(className = "linkToSignOrLogin")
+    private WebElement signUpButton;
+
+    public LoginPage(WebDriver driver, FluentWait<WebDriver> wait) {
+        super(driver, wait);
+    }
+
+    public void login(String username, String password) {
+        wait.until(ExpectedConditions.visibilityOf(usernameField)).sendKeys(username);
+        wait.until(ExpectedConditions.visibilityOf(passwordField)).sendKeys(password);
+        loginButton.click();
+    }
+
+    public void clickOnGoogleButton() {
+        wait.until(ExpectedConditions.visibilityOf(loginWithGoogleButton));
+        loginWithGoogleButton.click();
+    }
+
+    public void clickOnSignUpButton() {
+        wait.until(ExpectedConditions.visibilityOf(signUpButton));
+        signUpButton.click();
+    }
+
+
+
+}
