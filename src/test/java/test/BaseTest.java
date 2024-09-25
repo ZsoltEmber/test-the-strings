@@ -10,10 +10,20 @@ import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
 
-public abstract class BaseTest {
+public class BaseTest {
     protected WebDriver driver;
     protected FluentWait<WebDriver> wait;
 
+    public BaseTest(WebDriver driver, FluentWait<WebDriver> wait) {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--disable-search-engine-choice-screen");
+        this.wait =   wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(2))
+                .ignoring(NoSuchElementException.class);;
+        this.driver = new ChromeDriver(options);
+    }
 
     @BeforeEach
     public void setup() {
