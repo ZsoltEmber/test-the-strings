@@ -19,7 +19,4 @@ public class Post extends BaseComponent {
         this.meatBallMenu = root.findElement(By.className("threeDot"));
         this.heart = root.findElement(By.className("heart"));
     }
-
-
-
 }
