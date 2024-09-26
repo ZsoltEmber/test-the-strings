@@ -48,7 +48,7 @@ public class SignUpPage extends BasePage {
         return new LoginPage(driver, wait);
     }
 
-    public LoginPage register(TestUser testUser) throws InterruptedException {
+    public LoginPage register(TestUser testUser){
         driver.get("http://localhost:5173/signup");
         wait.until(ExpectedConditions.urlContains("signup"));
         wait.until(ExpectedConditions.visibilityOf(this.firstName)).sendKeys(testUser.getFirstName());
