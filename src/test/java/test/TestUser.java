@@ -1,4 +1,4 @@
-import java.util.UUID;
+package test;
 
 public class TestUser {
     private final long id;
