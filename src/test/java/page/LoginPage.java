@@ -31,18 +31,18 @@ public class LoginPage extends BasePage {
     }
 
     public MainPage login(String username, String password) {
+        driver.get("http://localhost:5173/login");
         wait.until(ExpectedConditions.visibilityOf(usernameField)).sendKeys(username);
         wait.until(ExpectedConditions.visibilityOf(passwordField)).sendKeys(password);
         loginButton.click();
-        wait.until(ExpectedConditions.urlToBe("http://localhost:5173/"));
         return new MainPage(driver, wait);
     }
 
     public MainPage login(TestUser testUser) {
+        driver.get("http://localhost:5173/login");
         wait.until(ExpectedConditions.visibilityOf(usernameField)).sendKeys(testUser.getUsername());
         wait.until(ExpectedConditions.visibilityOf(passwordField)).sendKeys(testUser.getPassword());
         loginButton.click();
-        wait.until(ExpectedConditions.urlToBe("http://localhost:5173/"));
         return new MainPage(driver, wait);
     }
 

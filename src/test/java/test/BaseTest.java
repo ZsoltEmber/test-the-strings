@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
+import page.LoginPage;
 import page.SignUpPage;
 
 import java.time.Duration;
@@ -15,6 +16,7 @@ public class BaseTest {
     protected WebDriver driver;
     protected FluentWait<WebDriver> wait;
     protected SignUpPage signUpPage;
+    protected LoginPage loginPage;
 
     @BeforeEach
     public void setup() {
@@ -28,6 +30,7 @@ public class BaseTest {
                 .ignoring(NoSuchElementException.class);
         driver.manage().window().maximize();
         signUpPage = new SignUpPage(driver, wait);
+        loginPage = new LoginPage(driver,wait);
     }
 
     @AfterEach
