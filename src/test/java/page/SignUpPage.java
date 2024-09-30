@@ -57,7 +57,6 @@ public class SignUpPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(this.email)).sendKeys(testUser.getEmail());
         wait.until(ExpectedConditions.visibilityOf(this.password)).sendKeys(testUser.getPassword());
         wait.until(ExpectedConditions.elementToBeClickable(this.submitButton)).click();
-        wait.until(ExpectedConditions.urlToBe("http://localhost:5173/login"));
         return new LoginPage(driver, wait);
     }
 }

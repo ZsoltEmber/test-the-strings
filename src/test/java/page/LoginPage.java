@@ -51,9 +51,10 @@ public class LoginPage extends BasePage {
         loginWithGoogleButton.click();
     }
 
-    public void clickOnSignUpButton() {
+    public SignUpPage clickOnSignUpButton() {
         wait.until(ExpectedConditions.visibilityOf(signUpButton));
         signUpButton.click();
+        return new SignUpPage(driver, wait);
     }
 
 
