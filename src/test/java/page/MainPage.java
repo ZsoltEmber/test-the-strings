@@ -32,4 +32,9 @@ public class MainPage extends BasePage {
     public MainPage(WebDriver driver, FluentWait<WebDriver> wait) {
         super(driver, wait);
     }
+
+    public CreatePostPage createPost() {
+        createPostButton.click();
+        return new CreatePostPage(driver, wait);
+    }
 }
