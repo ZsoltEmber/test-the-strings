@@ -38,4 +38,9 @@ public class MainPage extends BasePage {
         logoutButton.click();
         return new LoginPage(driver, wait);
     }
+
+    public CreatePostPage createPost() {
+        createPostButton.click();
+        return new CreatePostPage(driver, wait);
+    }
 }
