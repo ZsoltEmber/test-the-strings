@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
 import page.LoginPage;
+import page.MainPage;
 import page.SignUpPage;
 
 import java.time.Duration;
@@ -17,6 +18,7 @@ public class BaseTest {
     protected FluentWait<WebDriver> wait;
     protected SignUpPage signUpPage;
     protected LoginPage loginPage;
+    protected MainPage mainPage;
 
     @BeforeEach
     public void setup() {
