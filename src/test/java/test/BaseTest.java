@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
+import page.CreatePostPage;
 import page.LoginPage;
 import page.MainPage;
 import page.SignUpPage;
@@ -19,6 +20,7 @@ public class BaseTest {
     protected SignUpPage signUpPage;
     protected LoginPage loginPage;
     protected MainPage mainPage;
+    protected CreatePostPage createPostPage;
 
     @BeforeEach
     public void setup() {
@@ -28,11 +30,13 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(1))
+                .pollingEvery(Duration.ofSeconds(2))
                 .ignoring(NoSuchElementException.class);
         driver.manage().window().maximize();
         signUpPage = new SignUpPage(driver, wait);
         loginPage = new LoginPage(driver,wait);
+        mainPage = new MainPage(driver, wait);
+        createPostPage = new CreatePostPage(driver, wait);
     }
 
     @AfterEach
