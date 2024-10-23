@@ -1,4 +1,5 @@
 # Test the strings
+<p><a id=readme-top></a></p>
 
 ## About The Project
 This project is a Selenium-Java based test automation framework designed to test the functionality of a social media platform that is currently under development. It enables automated testing of key features such as user authentication, content creation, interactions, and overall platform performance.
